@@ -17,6 +17,16 @@ async def on_ready():
     print(channel.name, "is the name of the channel")
     await channel.send("I'm online!")
 
+@client.event
+async def on_message(message):
+    print(message.channel.name, "the message was posted from this channel")
+    print(message.content)
+    print(message.author,"is the user who wrote the message")
+    print(message.created_at,"is when the message was posted")
+    print(message.channel,"is the channel this message was posted in")
+    if message.author.bot == False:
+        await message.channel.send("Hello " + str(message.author))
+    
 
 
-client.run("ODk2MDE1NzE4OTgwNjUzMDg3.YWA9qg.KHMhcwZ85nBPEROqJ7pTA1WH7ic")
+client.run("ODk2MDE1NzE4OTgwNjUzMDg3.YWA9qg.c7pETJ1kJJjBj8c6AHgY6FF2T88")
